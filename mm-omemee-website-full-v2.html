@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M&M Omemee — Coffee • Hardware • Convenience</title>
+  <meta name="description" content="M&M Omemee — Coffee • Hardware • Convenience. Proud Coffee Time franchise. Est. 2019." />
+  <style>
+    :root{
+      --red:#e02020;
+      --dark:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --bg:#ffffff;
+      --shadow:0 10px 28px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--dark);
+      background:var(--bg);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--max);margin:auto;padding:0 20px}
+
+    header{
+      position:sticky;top:0;z-index:10;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand img{height:42px}
+    .menu{display:flex;gap:20px;font-weight:700;color:var(--muted)}
+    .menu a:hover{color:var(--dark)}
+
+    .hero{padding:60px 0}
+    .heroBox{
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:50px 20px;
+      text-align:center;
+      box-shadow:var(--shadow);
+      background:linear-gradient(180deg,#fff,#fafafa);
+    }
+    .heroBox img{max-width:320px;width:100%;margin-bottom:20px}
+    h1{margin:10px 0;font-size:2.6rem}
+    .sub{font-size:1.3rem;font-weight:800}
+    .tag{margin-top:8px;color:var(--muted)}
+    .cta{margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn.red{background:var(--red);color:#fff}
+    .btn.dark{background:#111827;color:#fff}
+
+    section{padding:40px 0}
+    h2{margin-bottom:18px}
+    .grid{display:grid;gap:18px}
+    .grid4{grid-template-columns:repeat(4,1fr)}
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+    .card h3{margin-top:0}
+    .logoBox{text-align:center;margin-top:12px}
+    .logoBox img{max-height:48px}
+
+    .pillRow{
+      display:flex;gap:14px;flex-wrap:wrap;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      background:#fafafa;
+      font-weight:800;
+    }
+    .pill{display:flex;align-items:center;gap:10px;background:#fff;padding:10px 14px;border-radius:14px;border:1px solid var(--line)}
+    .pill img{height:26px}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    iframe{width:100%;height:260px;border:0;border-radius:18px}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media(max-width:900px){
+      .grid4{grid-template-columns:1fr 1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media(max-width:520px){
+      .grid4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="mm-logo.png" alt="M&M Omemee">
+    </div>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="container hero">
+    <div class="heroBox">
+      <img src="mm-logo.png" alt="M&M Omemee Logo">
+      <div class="sub">Coffee • Hardware • Convenience</div>
+      <div class="tag">Your Local One‑Stop Store in Omemee</div>
+      <div class="cta">
+        <a class="btn red" href="https://maps.app.goo.gl/gRK4Hw2q2zhaLU6P9?g_st=ic" target="_blank">Get Directions</a>
+        <a class="btn dark" href="tel:17057996597">Call 705‑799‑6597</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="grid grid4">
+        <div class="card">
+          <h3>☕ Coffee</h3>
+          <p>Proud Coffee Time franchise serving fresh coffee, iced drinks, smoothies, and donuts.</p>
+          <div class="logoBox">
+            <img src="coffee-time-logo.png" alt="Coffee Time">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🧊 Frozen Food</h3>
+          <p>Authorized M&M Food Market Express location with quality frozen meals.</p>
+        </div>
+
+        <div class="card">
+          <h3>🔧 Hardware</h3>
+          <p>Tools, seasonal items, and essentials for home and cottage.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏪 Convenience</h3>
+          <p>Beer, lottery, snacks, drinks, and everyday essentials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="pillRow">
+        <div class="pill"><img src="coffee-time-logo.png">Coffee Time</div>
+        <div class="pill">🍺 Beer</div>
+        <div class="pill">🎟 Lottery</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About M&M Omemee</h2>
+      <p><strong>M&M</strong> is a locally owned store in Omemee, Ontario, established in 2019.</p>
+      <p>We bring together coffee, hardware, and everyday convenience in one easy stop.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+      <div>
+        <h2>Contact</h2>
+        <p><strong>Address:</strong><br>13 King St E, Omemee, ON</p>
+        <p><strong>Phone:</strong><br><a href="tel:17057996597">705‑799‑6597</a></p>
+      </div>
+      <iframe src="https://www.google.com/maps?q=13+King+St+E,+Omemee,+ON&output=embed"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>M&M Omemee · Coffee • Hardware • Convenience · Est. 2019</div>
+  <div>Coffee Time Franchise</div>
+</footer>
+
+</body>
+</html>
