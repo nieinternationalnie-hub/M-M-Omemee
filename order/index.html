@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Online | M&M Omemee</title>
+  <meta name="description" content="Order Coffee Time drinks and M&M Food Market Express items online for pickup at M&M Omemee." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://coffeehardwareconvenience.ca/order/" />
+
+  <style>
+    :root{
+      --red:#e02020;--dark:#111827;--muted:#6b7280;--line:#e5e7eb;
+      --shadow:0 10px 28px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#fff;color:var(--dark);line-height:1.5
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:760px;margin:auto;padding:24px}
+    header{border-bottom:1px solid var(--line);margin-bottom:20px}
+    h1{margin:0 0 6px}
+    .muted{color:var(--muted);font-weight:700}
+    .card{
+      border:1px solid var(--line);border-radius:18px;
+      box-shadow:var(--shadow);padding:20px;margin-bottom:18px
+    }
+    label{display:block;margin:10px 0;font-weight:700}
+    input, textarea, select{
+      width:100%;padding:12px;border-radius:12px;
+      border:1px solid var(--line);font-size:1rem
+    }
+    .checklist label{font-weight:600}
+    button{
+      background:var(--red);color:#fff;
+      border:none;border-radius:14px;
+      padding:14px;font-size:1rem;
+      font-weight:900;cursor:pointer;width:100%
+    }
+  </style>
+</head>
+
+<body>
+<header class="container">
+  <a href="/" style="font-weight:900">← Back to Home</a>
+  <h1>Order Online</h1>
+  <p class="muted">Order online • Pay in store • Pickup at M&M Omemee</p>
+</header>
+
+<main class="container">
+
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+  <div class="card">
+    <h2>☕ Coffee Time</h2>
+    <div class="checklist">
+      <label><input type="checkbox" name="coffee[]" value="Regular Coffee"> Regular Coffee</label>
+      <label><input type="checkbox" name="coffee[]" value="Iced Coffee"> Iced Coffee</label>
+      <label><input type="checkbox" name="coffee[]" value="Donut"> Donut</label>
+      <label><input type="checkbox" name="coffee[]" value="Smoothie"> Smoothie</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🍱 M&M Food Market Express</h2>
+    <div class="checklist">
+      <label><input type="checkbox" name="mm[]" value="Frozen Entrées"> Frozen Entrées</label>
+      <label><input type="checkbox" name="mm[]" value="Appetizers"> Appetizers</label>
+      <label><input type="checkbox" name="mm[]" value="Family Meals"> Family Meals</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Your Details</h2>
+    <label>Name
+      <input type="text" name="name" required>
+    </label>
+    <label>Phone Number
+      <input type="tel" name="phone" required>
+    </label>
+    <label>Preferred Pickup Time
+      <input type="text" name="pickup_time" placeholder="e.g. Today at 4:30 PM">
+    </label>
+    <label>Notes
+      <textarea name="notes" placeholder="Any special requests"></textarea>
+    </label>
+  </div>
+
+  <button type="submit">Submit Order</button>
+</form>
+
+<p class="muted" style="text-align:center;margin-top:12px">
+  Payment is made in store at pickup.
+</p>
+
+</main>
+</body>
+</html>
