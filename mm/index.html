@@ -4,639 +4,366 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>M&M Food Market Express | M&M Omemee</title>
-  <meta name="description" content="Order M&M Food Market Express items in Omemee. Add quantities to your cart and request pickup. No HST. Pay in store." />
+  <meta name="description" content="Browse M&M Food Market Express items in Omemee. Add quantities to your cart and request pickup (pay in store)." />
   <link rel="canonical" href="https://coffeehardwareconvenience.ca/mm/" />
   <meta name="robots" content="index,follow" />
 
   <style>
     :root{
-      --red:#e02020;
-      --dark:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --shadow:0 10px 28px rgba(0,0,0,.06);
-      --max:1100px;
+      --red:#e02020;--dark:#111827;--muted:#6b7280;--line:#e5e7eb;
+      --shadow:0 10px 28px rgba(0,0,0,.06);--max:1100px;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      color:var(--dark);
-      background:#fff;
-      line-height:1.5;
-    }
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.5}
     a{text-decoration:none;color:inherit}
     .container{max-width:var(--max);margin:auto;padding:0 18px}
-
-    header{
-      position:sticky;top:0;z-index:100;
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:12px 0;
-    }
-    .brand{font-weight:1000}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{font-weight:1000;letter-spacing:-.3px}
     .brand span{color:var(--red)}
-    .menu{display:flex;gap:10px;flex-wrap:wrap}
-    .menu a{
-      padding:10px 12px;border-radius:14px;
-      font-weight:900;color:var(--muted)
-    }
-    .menu a:hover{color:var(--red);background:#fafafa}
+    .menu{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .link{padding:10px 12px;border-radius:14px;font-weight:900;color:var(--muted)}
+    .link:hover{color:var(--red);background:#fafafa}
 
-    main{padding:22px 0 120px}
-
-    /* HERO */
-    .hero{
-      border:1px solid var(--line);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      padding:18px;
-      background:linear-gradient(180deg,#fff 0%,#f9fafb 100%);
-      text-align:center;
-    }
-    .hero img{
-      max-height:56px;
-      width:auto;
-      margin-bottom:10px;
-    }
-    <div class="mm-express-brand">
-  <img 
-    src="/mm/assets/mm-express-logo.png"
-    alt="M&M Food Market Express Omemee"
-  >
-</div>
-    h1{margin:6px 0;font-size:2rem}
+    main{padding:22px 0 110px}
+    .hero{border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px;background:linear-gradient(180deg,#fff 0%,#f9fafb 100%)}
+    h1{margin:0 0 6px;font-size:2rem}
     .sub{margin:0;color:var(--muted);font-weight:900}
-    .tagRow{
-      display:flex;gap:10px;flex-wrap:wrap;
-      justify-content:center;margin-top:12px
-    }
-    .tag{
-      background:#fff;border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;
-      font-weight:900;font-size:.9rem
-    }
+    .tagRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:999px;font-weight:900;color:#374151}
     .note{margin-top:10px;color:var(--muted);font-weight:800;font-size:.95rem}
 
-    /* PRODUCT GRID */
-    h2{margin:22px 0 10px;font-size:1.35rem}
-    .grid{
-      display:grid;gap:14px;
-      grid-template-columns:repeat(3,1fr);
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      padding:14px;
-      background:#fff;
-    }
-    .top{
-      display:flex;justify-content:space-between;
-      gap:10px;align-items:flex-start
-    }
+    h2{margin:18px 0 10px;font-size:1.25rem}
+    .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:12px}
+    .card{border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px;background:#fff}
+    .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
     .name{font-weight:1000}
-    .sku{color:var(--muted);font-weight:900;font-size:.85rem}
-    .price{font-weight:1100;color:var(--red)}
-    .qtyRow{
-      display:flex;align-items:center;
-      justify-content:space-between;
-      margin-top:12px;
-    }
-    .qtyRow label{font-weight:1000}
+    .sku{color:var(--muted);font-weight:900;font-size:.88rem;margin-top:2px}
+    .price{font-weight:1100;color:var(--red);white-space:nowrap}
+    .meta{margin-top:8px;color:var(--muted);font-weight:800;font-size:.92rem}
+
+    .qtyRow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+    .qtyRow label{font-weight:1000;color:#374151}
     .qty{
-      width:110px;padding:10px 12px;
-      border-radius:12px;border:1px solid var(--line);
+      width:110px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);
       font-size:1rem
     }
 
-    /* CART BAR */
+    .pickupWrap{
+      border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;background:#fff;margin-top:14px
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input[type="text"], input[type="tel"], textarea, select{
+      width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);font-size:1rem
+    }
+    label.block{display:block;font-weight:1000;margin:10px 0 6px}
+    textarea{resize:vertical}
+
+    footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);text-align:center;background:#f9fafb;margin-top:26px}
+
     .cartBar{
-      position:fixed;left:0;right:0;bottom:0;
+      position:fixed;left:0;right:0;bottom:0;z-index:200;
       background:rgba(255,255,255,.96);
       border-top:1px solid var(--line);
       backdrop-filter:blur(10px);
       box-shadow:0 -10px 28px rgba(0,0,0,.06);
-      z-index:200;
     }
-    .cartInner{
-      max-width:var(--max);margin:auto;
-      padding:12px 18px;
-      display:flex;gap:12px;
-      align-items:center;justify-content:space-between;
-      flex-wrap:wrap
-    }
+    .cartInner{max-width:var(--max);margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .cartSummary{display:flex;flex-direction:column;gap:2px;min-width:240px}
     .cartSummary strong{font-size:1.05rem}
-    .cartSummary span{color:var(--muted);font-weight:800;font-size:.9rem}
+    .cartSummary span{color:var(--muted);font-weight:800;font-size:.92rem}
+    .cartActions{display:flex;gap:10px;flex-wrap:wrap}
     .btn{
-      padding:12px 14px;border-radius:14px;
-      font-weight:1000;border:1px solid var(--line);
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 14px;border-radius:14px;font-weight:1000;border:1px solid var(--line);
       background:#fff;cursor:pointer
     }
-    .btn.red{
-      background:var(--red);color:#fff;
-      border-color:transparent;
-      box-shadow:0 4px 14px rgba(224,32,32,.3)
+    .btn.red{background:var(--red);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(224,32,32,.3)}
+    .btn:disabled{opacity:.55;cursor:not-allowed}
+    .mini{font-size:.92rem;font-weight:900;color:var(--muted)}
+    .cartList{
+      width:100%;
+      max-height:160px;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+      background:#fafafa;
+      display:none;
     }
-    .btn:disabled{opacity:.5}
+    .cartList.show{display:block}
+    .cartItem{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed #e5e7eb}
+    .cartItem:last-child{border-bottom:0}
+    .cartItem .left{font-weight:900}
+    .cartItem .right{font-weight:1000;color:#111827;white-space:nowrap}
 
-    @media(max-width:900px){
-      .grid{grid-template-columns:1fr 1fr}
-    }
+    @media(max-width:980px){.grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){
       .grid{grid-template-columns:1fr}
-      .hero img{max-height:46px}
+      .row{grid-template-columns:1fr}
+      .qty{width:120px}
+      .cartInner{padding:12px 14px}
     }
   </style>
 </head>
-
 <body>
 
 <header>
   <div class="container nav">
     <div class="brand">M&amp;M <span>Omemee</span></div>
     <nav class="menu">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
+      <a class="link" href="/">Home</a>
+      <a class="link" href="/about/">About</a>
+      <a class="link" href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
-
-  <!-- HERO -->
   <div class="hero">
-    <img src="/images/mm-food-market-express-logo.png" alt="M&M Food Market Express">
     <h1>M&amp;M Food Market Express</h1>
-    <p class="sub">Add quantities • Request pickup • Pay in store</p>
+    <p class="sub">Add quantities to your cart • Request pickup • Pay in store</p>
     <div class="tagRow">
       <div class="tag">📍 13 King St E, Omemee</div>
-      <div class="tag">🕒 Mon–Sat 6–7 · Sun 7–6</div>
+      <div class="tag">🕒 Mon–Sat 6–7 • Sun 7–6</div>
       <div class="tag">📞 705-799-6597</div>
     </div>
-    <p class="note">No HST on these items · Prices as listed in-store</p>
+    <p class="note">Tip: Set Qty to 0 for items you don’t want. Your cart updates automatically below.</p>
+    <p class="note">No HST on these items. Prices shown are as listed in-store.</p>
   </div>
 
-  <!-- PRODUCTS -->
-  <h2>Menu & Prices (CAD)</h2>
-  <div class="grid">
+  <h2>Menu &amp; Prices (CAD)</h2>
 
-    <!-- 示例商品（其余商品你已经有，我不再重复粘贴，结构完全<!-- M&M Food Market Express Product Cards -->
+  <div class="grid" id="productGrid">
+    <!-- ✅ 示例：你可以按这个结构继续加商品（我这里放了几个，实际你把你那份全商品继续往下粘贴即可） -->
 
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Double Pepperoni Gourmet Flatbread</div>
-      <div class="sku">SKU 4227 · 480g</div>
+    <div class="card">
+      <div class="top">
+        <div>
+          <div class="name">Double Pepperoni Gourmet Flatbread</div>
+          <div class="sku">SKU 4227 · 480g</div>
+        </div>
+        <div class="price">$13.99</div>
+      </div>
+      <div class="meta">🍕 Flatbread</div>
+      <div class="qtyRow">
+        <label for="q_4227">Qty</label>
+        <input class="qty" id="q_4227" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
+               data-sku="4227" data-name="Double Pepperoni Gourmet Flatbread" data-size="480g" data-price="13.99">
+      </div>
     </div>
-    <div class="price">$13.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="flatbread_4227" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
 
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Garlic Bread</div>
-      <div class="sku">SKU 500 · 330g</div>
+    <div class="card">
+      <div class="top">
+        <div>
+          <div class="name">Garlic Bread</div>
+          <div class="sku">SKU 500 · 330g</div>
+        </div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="meta">🥖 Bread</div>
+      <div class="qtyRow">
+        <label for="q_500">Qty</label>
+        <input class="qty" id="q_500" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
+               data-sku="500" data-name="Garlic Bread" data-size="330g" data-price="3.99">
+      </div>
     </div>
-    <div class="price">$3.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="garlic_500" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
 
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Pralines & Cream Cheesecake Bites</div>
-      <div class="sku">SKU 654 · 1kg</div>
+    <div class="card">
+      <div class="top">
+        <div>
+          <div class="name">Mozzarella Sticks</div>
+          <div class="sku">SKU 517 · 454g</div>
+        </div>
+        <div class="price">$16.99</div>
+      </div>
+      <div class="meta">🧀 Appetizer</div>
+      <div class="qtyRow">
+        <label for="q_517">Qty</label>
+        <input class="qty" id="q_517" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
+               data-sku="517" data-name="Mozzarella Sticks" data-size="454g" data-price="16.99">
+      </div>
     </div>
-    <div class="price">$16.59</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="cheesecake_654" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
 
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Nanaimo Bars</div>
-      <div class="sku">SKU 682</div>
+  </div>
+
+  <div class="pickupWrap" id="pickup">
+    <h2 style="margin:0 0 6px">Request Pickup</h2>
+    <p class="sub" style="margin:0 0 10px">No online payment • Pay in store at pickup</p>
+
+    <!-- ✅ 换成你自己的 Formspree -->
+    <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="row">
+        <div>
+          <label class="block" for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label class="block" for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label class="block" for="pickup_day">Pickup Day</label>
+          <select id="pickup_day" name="pickup_day">
+            <option>Today</option>
+            <option>Tomorrow</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block" for="pickup_time">Preferred Time</label>
+          <input id="pickup_time" name="pickup_time" type="text" placeholder="e.g. 4:30 PM">
+        </div>
+      </div>
+
+      <label class="block" for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Any notes…"></textarea>
+
+      <input type="hidden" id="order_total_items" name="order_total_items" value="0">
+      <input type="hidden" id="order_est_total" name="order_est_total" value="0">
+      <textarea id="order_summary" name="order_summary" style="display:none"></textarea>
+
+      <button class="btn red" id="submitBtn" type="submit" style="width:100%;margin-top:12px" disabled>
+        Submit Pickup Request
+      </button>
+
+      <div class="mini" style="text-align:center;margin-top:10px">
+        *Prices & availability may change. We’ll confirm if needed.
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <div class="container">
+      M&amp;M Omemee · 13 King St E, Omemee, ON · 705-799-6597
     </div>
-    <div class="price">$20.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="nanaimo_682" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Honey Garlic Dipping Sauce</div>
-      <div class="sku">SKU 752 · 350ml</div>
-    </div>
-    <div class="price">$5.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="sauce_hg_752" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Thai Style Sweet & Spicy Dipping Sauce</div>
-      <div class="sku">SKU 848</div>
-    </div>
-    <div class="price">$5.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="sauce_thai_848" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Sirloin Beef Meatballs</div>
-      <div class="sku">SKU 15 · 907g</div>
-    </div>
-    <div class="price">$18.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="meatballs_15" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Salt & Pepper Chicken Wings</div>
-      <div class="sku">SKU 204 · 907g</div>
-    </div>
-    <div class="price">$27.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="wings_204" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Slow Cooked Beef Pot Roast</div>
-      <div class="sku">SKU 37 · 907g</div>
-    </div>
-    <div class="price">$31.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="potroast_37" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Angus Beef Burgers</div>
-      <div class="sku">SKU 4011 · 852g</div>
-    </div>
-    <div class="price">$22.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="burgers_4011" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Lasagna</div>
-      <div class="sku">SKU 408 · 907g</div>
-    </div>
-    <div class="price">$12.59</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="lasagna_408" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Cabbage Rolls</div>
-      <div class="sku">SKU 416 · 907g</div>
-    </div>
-    <div class="price">$15.49</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="cabbage_416" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">French Onion Soup</div>
-      <div class="sku">SKU 432 · 285g</div>
-    </div>
-    <div class="price">$7.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="soup_432" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Chicken Strips</div>
-      <div class="sku">SKU 4391 · 680g</div>
-    </div>
-    <div class="price">$22.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="strips_4391" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Battered Cheese Curds</div>
-      <div class="sku">SKU 4396 · 280g</div>
-    </div>
-    <div class="price">$15.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="curds_4396" value="0" min="0" inputmode="numeric">
-  </div>
-</div><div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Creamy Chicken Pot Pie</div>
-      <div class="sku">SKU 4462 · 907g</div>
-    </div>
-    <div class="price">$6.59</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="potpie_4462" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Butter Chicken</div>
-      <div class="sku">SKU 4550 · 300g</div>
-    </div>
-    <div class="price">$6.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="butterchicken_4550" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Wagyu Beef Sliders</div>
-      <div class="sku">SKU 4643 · 459g</div>
-    </div>
-    <div class="price">$15.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="sliders_4643" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Mozzarella Sticks</div>
-      <div class="sku">SKU 517 · 454g</div>
-    </div>
-    <div class="price">$16.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="mozzarella_517" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Macaroni & Cheese</div>
-      <div class="sku">SKU 581 · 300g</div>
-    </div>
-    <div class="price">$6.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="maccheese_581" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Cabbage Rolls</div>
-      <div class="sku">SKU 587 · 300g</div>
-    </div>
-    <div class="price">$6.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="cabbage_587" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Spinach Artichoke & Cheese Dip</div>
-      <div class="sku">SKU 793 · 250g</div>
-    </div>
-    <div class="price">$7.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="spinachdip_793" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Lemon Herb Chicken & Pasta Kit</div>
-      <div class="sku">SKU 4461 · 907g</div>
-    </div>
-    <div class="price">$22.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="lemonpasta_4461" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Beef Lo Mein Kit</div>
-      <div class="sku">SKU 4463 · 375g</div>
-    </div>
-    <div class="price">$24.59</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="lomein_4463" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Chicken Quesadillas</div>
-      <div class="sku">SKU 456 · 500g</div>
-    </div>
-    <div class="price">$13.59</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="quesadilla_456" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Gourmet Hamburger Buns (8 Pack)</div>
-      <div class="sku">SKU Food Market · 8 Pack</div>
-    </div>
-    <div class="price">$7.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="buns_8pack" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Apple Blossoms</div>
-      <div class="sku">SKU 755 · 230g</div>
-    </div>
-    <div class="price">$5.49</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="apple_755" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Pulled Pork</div>
-      <div class="sku">SKU 103 · 680g</div>
-    </div>
-    <div class="price">$17.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="pulledpork_103" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Oktoberfest Sausages</div>
-      <div class="sku">SKU 109 · 900g</div>
-    </div>
-    <div class="price">$20.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="sausages_109" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Honey Garlic Back Ribs</div>
-      <div class="sku">SKU 155 · Fall-Off-The-Bone</div>
-    </div>
-    <div class="price">$17.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="ribs_155" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-<div class="card">
-  <div class="top">
-    <div>
-      <div class="name">Six Cheese Tortellini</div>
-      <div class="sku">SKU 437 · 300g</div>
-    </div>
-    <div class="price">$5.99</div>
-  </div>
-  <div class="qtyRow">
-    <label>Qty</label>
-    <input class="qty" type="number" name="tortellini_437" value="0" min="0" inputmode="numeric">
-  </div>
-</div>
-
-
-<!-- 下面还有 Butter Chicken / Sliders / Mozza / Mac & Cheese / etc -->
-
-    <!-- 👉 你其余所有商品卡片保持同样结构即可 -->
-  </div>
-
+  </footer>
 </main>
 
-<div class="cartBar">
+<div class="cartBar" role="region" aria-label="Cart">
   <div class="cartInner">
     <div class="cartSummary">
-      <strong>Cart</strong>
-      <span>No HST · Pay in store</span>
+      <strong id="cartTitle">Cart: 0 items</strong>
+      <span id="cartTotal">Estimated total: $0.00</span>
+      <span class="mini">No HST</span>
     </div>
-    <button class="btn red">Request Pickup</button>
+
+    <div class="cartActions">
+      <button class="btn" type="button" id="toggleListBtn">View items</button>
+      <button class="btn" type="button" id="clearBtn">Clear</button>
+      <a class="btn red" href="#pickup" id="goPickupBtn">Request Pickup</a>
+    </div>
+
+    <div class="cartList" id="cartList"></div>
   </div>
 </div>
+
+<script>
+  const qtyInputs = Array.from(document.querySelectorAll('.qty'));
+  const cartTitle = document.getElementById('cartTitle');
+  const cartTotal = document.getElementById('cartTotal');
+  const cartList = document.getElementById('cartList');
+  const toggleListBtn = document.getElementById('toggleListBtn');
+  const clearBtn = document.getElementById('clearBtn');
+
+  const orderSummary = document.getElementById('order_summary');
+  const orderTotalItems = document.getElementById('order_total_items');
+  const orderEstTotal = document.getElementById('order_est_total');
+  const submitBtn = document.getElementById('submitBtn');
+  const orderForm = document.getElementById('orderForm');
+
+  function money(n){
+    return '$' + (Math.round(n * 100) / 100).toFixed(2);
+  }
+
+  function buildCart(){
+    let items = [];
+    let totalQty = 0;
+    let estTotal = 0;
+
+    qtyInputs.forEach(inp => {
+      const qty = parseInt(inp.value || '0', 10);
+      if(qty > 0){
+        const name = (inp.dataset.name || '').replace(/&amp;/g,'&');
+        const sku = inp.dataset.sku || '';
+        const size = inp.dataset.size || '';
+        const price = parseFloat(inp.dataset.price || '0');
+        const line = qty * price;
+
+        items.push({qty, name, sku, size, price, line});
+        totalQty += qty;
+        estTotal += line;
+      }
+    });
+
+    cartTitle.textContent = `Cart: ${totalQty} item${totalQty === 1 ? '' : 's'}`;
+    cartTotal.textContent = `Estimated total: ${money(estTotal)}`;
+
+    if(items.length === 0){
+      cartList.innerHTML = `<div class="mini">No items yet. Add quantities above.</div>`;
+    } else {
+      cartList.innerHTML = items.map(it => {
+        const label = `${it.qty} × ${it.name}${it.size ? ' ('+it.size+')' : ''} — SKU ${it.sku}`;
+        return `
+          <div class="cartItem">
+            <div class="left">${label}</div>
+            <div class="right">${money(it.line)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    const summaryText = items.length
+      ? items.map(it => `${it.qty} x ${it.name}${it.size ? ' ('+it.size+')' : ''} | SKU ${it.sku} | $${it.price.toFixed(2)} each | Line: $${it.line.toFixed(2)}`).join('\n')
+      : 'No items selected.';
+
+    orderSummary.value = summaryText;
+    orderTotalItems.value = String(totalQty);
+    orderEstTotal.value = money(estTotal);
+
+    submitBtn.disabled = (totalQty === 0);
+  }
+
+  qtyInputs.forEach(inp => {
+    inp.addEventListener('input', () => {
+      if(inp.value === '') inp.value = '0';
+      if(parseInt(inp.value,10) < 0) inp.value = '0';
+      buildCart();
+    });
+
+    /* ✅ 优化：点一下自动全选 0，方便改数量 */
+    inp.addEventListener('focus', () => inp.select());
+  });
+
+  toggleListBtn.addEventListener('click', () => {
+    cartList.classList.toggle('show');
+    toggleListBtn.textContent = cartList.classList.contains('show') ? 'Hide items' : 'View items';
+  });
+
+  clearBtn.addEventListener('click', () => {
+    qtyInputs.forEach(inp => inp.value = '0');
+    buildCart();
+    cartList.classList.remove('show');
+    toggleListBtn.textContent = 'View items';
+  });
+
+  orderForm.addEventListener('submit', (e) => {
+    const totalQty = parseInt(orderTotalItems.value || '0', 10);
+    if(totalQty <= 0){
+      e.preventDefault();
+      alert('Please add at least one item before submitting.');
+    }
+  });
+
+  buildCart();
+</script>
 
 </body>
 </html>
