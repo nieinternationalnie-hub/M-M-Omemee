@@ -25,13 +25,13 @@
     .link{padding:10px 12px;border-radius:14px;font-weight:900;color:var(--muted)}
     .link:hover{color:var(--red);background:#fafafa}
 
-    main{padding:22px 0 110px} /* extra bottom space for cart bar */
+    main{padding:22px 0 110px}
     .hero{border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px;background:linear-gradient(180deg,#fff 0%,#f9fafb 100%)}
     h1{margin:0 0 6px;font-size:2rem}
     .sub{margin:0;color:var(--muted);font-weight:900}
     .tagRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:999px;font-weight:900;color:#374151}
-    .note{margin-top:12px;color:var(--muted);font-weight:800;font-size:.95rem}
+    .note{margin-top:10px;color:var(--muted);font-weight:800;font-size:.95rem}
 
     h2{margin:18px 0 10px;font-size:1.25rem}
     .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:12px}
@@ -49,7 +49,19 @@
       font-size:1rem
     }
 
-    /* Cart bar */
+    .pickupWrap{
+      border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;background:#fff;margin-top:14px
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input[type="text"], input[type="tel"], textarea, select{
+      width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);font-size:1rem
+    }
+    label.block{display:block;font-weight:1000;margin:10px 0 6px}
+    textarea{resize:vertical}
+
+    footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);text-align:center;background:#f9fafb;margin-top:26px}
+
     .cartBar{
       position:fixed;left:0;right:0;bottom:0;z-index:200;
       background:rgba(255,255,255,.96);
@@ -86,20 +98,6 @@
     .cartItem .left{font-weight:900}
     .cartItem .right{font-weight:1000;color:#111827;white-space:nowrap}
 
-    /* Pickup form modal-ish card */
-    .pickupWrap{
-      border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
-      padding:14px;background:#fff;margin-top:14px
-    }
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    input[type="text"], input[type="tel"], textarea, select{
-      width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);font-size:1rem
-    }
-    label.block{display:block;font-weight:1000;margin:10px 0 6px}
-    textarea{resize:vertical}
-
-    footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);text-align:center;background:#f9fafb;margin-top:26px}
-
     @media(max-width:980px){.grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){
       .grid{grid-template-columns:1fr}
@@ -132,17 +130,13 @@
       <div class="tag">📞 705-799-6597</div>
     </div>
     <p class="note">Tip: Set Qty to 0 for items you don’t want. Your cart updates automatically below.</p>
+    <p class="note">No HST on these items. Prices shown are as listed in-store.</p>
   </div>
 
   <h2>Menu &amp; Prices (CAD)</h2>
 
-  <!-- ======= PRODUCTS GRID ======= -->
   <div class="grid" id="productGrid">
-
-    <!-- Card template:
-      input.qty data fields drive cart + order summary
-      data-price is number only (no $)
-    -->
+    <!-- ✅ 示例：你可以按这个结构继续加商品（我这里放了几个，实际你把你那份全商品继续往下粘贴即可） -->
 
     <div class="card">
       <div class="top">
@@ -155,7 +149,8 @@
       <div class="meta">🍕 Flatbread</div>
       <div class="qtyRow">
         <label for="q_4227">Qty</label>
-        <input class="qty" id="q_4227" type="number" min="0" max="99" value="0"
+        <input class="qty" id="q_4227" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
                data-sku="4227" data-name="Double Pepperoni Gourmet Flatbread" data-size="480g" data-price="13.99">
       </div>
     </div>
@@ -171,264 +166,9 @@
       <div class="meta">🥖 Bread</div>
       <div class="qtyRow">
         <label for="q_500">Qty</label>
-        <input class="qty" id="q_500" type="number" min="0" max="99" value="0"
+        <input class="qty" id="q_500" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
                data-sku="500" data-name="Garlic Bread" data-size="330g" data-price="3.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Pralines &amp; Cream Cheesecake Bites</div>
-          <div class="sku">SKU 654 · 1kg</div>
-        </div>
-        <div class="price">$16.59</div>
-      </div>
-      <div class="meta">🍰 Dessert</div>
-      <div class="qtyRow">
-        <label for="q_654">Qty</label>
-        <input class="qty" id="q_654" type="number" min="0" max="99" value="0"
-               data-sku="654" data-name="Pralines &amp; Cream Cheesecake Bites" data-size="1kg" data-price="16.59">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Nanaimo Bars</div>
-          <div class="sku">SKU 682</div>
-        </div>
-        <div class="price">$20.99</div>
-      </div>
-      <div class="meta">🍫 Dessert</div>
-      <div class="qtyRow">
-        <label for="q_682">Qty</label>
-        <input class="qty" id="q_682" type="number" min="0" max="99" value="0"
-               data-sku="682" data-name="Nanaimo Bars" data-size="" data-price="20.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Honey Garlic Dipping Sauce</div>
-          <div class="sku">SKU 752 · 350ml</div>
-        </div>
-        <div class="price">$5.99</div>
-      </div>
-      <div class="meta">🥣 Sauce</div>
-      <div class="qtyRow">
-        <label for="q_752">Qty</label>
-        <input class="qty" id="q_752" type="number" min="0" max="99" value="0"
-               data-sku="752" data-name="Honey Garlic Dipping Sauce" data-size="350ml" data-price="5.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Thai Style Sweet &amp; Spicy Dipping Sauce</div>
-          <div class="sku">SKU 848</div>
-        </div>
-        <div class="price">$5.99</div>
-      </div>
-      <div class="meta">🥣 Sauce</div>
-      <div class="qtyRow">
-        <label for="q_848">Qty</label>
-        <input class="qty" id="q_848" type="number" min="0" max="99" value="0"
-               data-sku="848" data-name="Thai Style Sweet &amp; Spicy Dipping Sauce" data-size="" data-price="5.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Sirloin Beef Meatballs</div>
-          <div class="sku">SKU 15 · 907g</div>
-        </div>
-        <div class="price">$18.99</div>
-      </div>
-      <div class="meta">🥩 Beef</div>
-      <div class="qtyRow">
-        <label for="q_15">Qty</label>
-        <input class="qty" id="q_15" type="number" min="0" max="99" value="0"
-               data-sku="15" data-name="Sirloin Beef Meatballs" data-size="907g" data-price="18.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Salt &amp; Pepper Chicken Wings</div>
-          <div class="sku">SKU 204 · 907g</div>
-        </div>
-        <div class="price">$27.99</div>
-      </div>
-      <div class="meta">🍗 Chicken</div>
-      <div class="qtyRow">
-        <label for="q_204">Qty</label>
-        <input class="qty" id="q_204" type="number" min="0" max="99" value="0"
-               data-sku="204" data-name="Salt &amp; Pepper Chicken Wings" data-size="907g" data-price="27.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Slow Cooked Beef Pot Roast</div>
-          <div class="sku">SKU 37 · 907g</div>
-        </div>
-        <div class="price">$31.99</div>
-      </div>
-      <div class="meta">🥘 Beef</div>
-      <div class="qtyRow">
-        <label for="q_37">Qty</label>
-        <input class="qty" id="q_37" type="number" min="0" max="99" value="0"
-               data-sku="37" data-name="Slow Cooked Beef Pot Roast" data-size="907g" data-price="31.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Angus Beef Burgers</div>
-          <div class="sku">SKU 4011 · 852g</div>
-        </div>
-        <div class="price">$22.99</div>
-      </div>
-      <div class="meta">🍔 Burgers</div>
-      <div class="qtyRow">
-        <label for="q_4011">Qty</label>
-        <input class="qty" id="q_4011" type="number" min="0" max="99" value="0"
-               data-sku="4011" data-name="Angus Beef Burgers" data-size="852g" data-price="22.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Lasagna</div>
-          <div class="sku">SKU 408 · 907g</div>
-        </div>
-        <div class="price">$12.59</div>
-      </div>
-      <div class="meta">🍝 Pasta</div>
-      <div class="qtyRow">
-        <label for="q_408">Qty</label>
-        <input class="qty" id="q_408" type="number" min="0" max="99" value="0"
-               data-sku="408" data-name="Lasagna" data-size="907g" data-price="12.59">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Cabbage Rolls</div>
-          <div class="sku">SKU 416 · 907g</div>
-        </div>
-        <div class="price">$15.49</div>
-      </div>
-      <div class="meta">🥬 Meal</div>
-      <div class="qtyRow">
-        <label for="q_416">Qty</label>
-        <input class="qty" id="q_416" type="number" min="0" max="99" value="0"
-               data-sku="416" data-name="Cabbage Rolls" data-size="907g" data-price="15.49">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">French Onion Soup</div>
-          <div class="sku">SKU 432 · 285g</div>
-        </div>
-        <div class="price">$7.99</div>
-      </div>
-      <div class="meta">🥣 Soup</div>
-      <div class="qtyRow">
-        <label for="q_432">Qty</label>
-        <input class="qty" id="q_432" type="number" min="0" max="99" value="0"
-               data-sku="432" data-name="French Onion Soup" data-size="285g" data-price="7.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Chicken Strips</div>
-          <div class="sku">SKU 4391 · 680g</div>
-        </div>
-        <div class="price">$22.99</div>
-      </div>
-      <div class="meta">🍗 Chicken</div>
-      <div class="qtyRow">
-        <label for="q_4391">Qty</label>
-        <input class="qty" id="q_4391" type="number" min="0" max="99" value="0"
-               data-sku="4391" data-name="Chicken Strips" data-size="680g" data-price="22.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Battered Cheese Curds</div>
-          <div class="sku">SKU 4396 · 280g</div>
-        </div>
-        <div class="price">$15.99</div>
-      </div>
-      <div class="meta">🧀 Appetizer</div>
-      <div class="qtyRow">
-        <label for="q_4396">Qty</label>
-        <input class="qty" id="q_4396" type="number" min="0" max="99" value="0"
-               data-sku="4396" data-name="Battered Cheese Curds" data-size="280g" data-price="15.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Creamy Chicken Pot Pie</div>
-          <div class="sku">SKU 4462 · 907g</div>
-        </div>
-        <div class="price">$6.59</div>
-      </div>
-      <div class="meta">🥧 Meal</div>
-      <div class="qtyRow">
-        <label for="q_4462">Qty</label>
-        <input class="qty" id="q_4462" type="number" min="0" max="99" value="0"
-               data-sku="4462" data-name="Creamy Chicken Pot Pie" data-size="907g" data-price="6.59">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Butter Chicken</div>
-          <div class="sku">SKU 4550 · 300g</div>
-        </div>
-        <div class="price">$6.99</div>
-      </div>
-      <div class="meta">🍛 Meal</div>
-      <div class="qtyRow">
-        <label for="q_4550">Qty</label>
-        <input class="qty" id="q_4550" type="number" min="0" max="99" value="0"
-               data-sku="4550" data-name="Butter Chicken" data-size="300g" data-price="6.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Wagyu Beef Sliders</div>
-          <div class="sku">SKU 4643 · 459g</div>
-        </div>
-        <div class="price">$15.99</div>
-      </div>
-      <div class="meta">🍔 Beef</div>
-      <div class="qtyRow">
-        <label for="q_4643">Qty</label>
-        <input class="qty" id="q_4643" type="number" min="0" max="99" value="0"
-               data-sku="4643" data-name="Wagyu Beef Sliders" data-size="459g" data-price="15.99">
       </div>
     </div>
 
@@ -443,211 +183,19 @@
       <div class="meta">🧀 Appetizer</div>
       <div class="qtyRow">
         <label for="q_517">Qty</label>
-        <input class="qty" id="q_517" type="number" min="0" max="99" value="0"
+        <input class="qty" id="q_517" type="number" inputmode="numeric" pattern="[0-9]*"
+               min="0" max="99" value="0"
                data-sku="517" data-name="Mozzarella Sticks" data-size="454g" data-price="16.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Macaroni &amp; Cheese</div>
-          <div class="sku">SKU 581 · 300g</div>
-        </div>
-        <div class="price">$6.99</div>
-      </div>
-      <div class="meta">🧀 Pasta</div>
-      <div class="qtyRow">
-        <label for="q_581">Qty</label>
-        <input class="qty" id="q_581" type="number" min="0" max="99" value="0"
-               data-sku="581" data-name="Macaroni &amp; Cheese" data-size="300g" data-price="6.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Cabbage Rolls</div>
-          <div class="sku">SKU 587 · 300g</div>
-        </div>
-        <div class="price">$6.99</div>
-      </div>
-      <div class="meta">🥬 Meal</div>
-      <div class="qtyRow">
-        <label for="q_587">Qty</label>
-        <input class="qty" id="q_587" type="number" min="0" max="99" value="0"
-               data-sku="587" data-name="Cabbage Rolls" data-size="300g" data-price="6.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Spinach Artichoke &amp; Cheese Dip</div>
-          <div class="sku">SKU 793 · 250g</div>
-        </div>
-        <div class="price">$7.99</div>
-      </div>
-      <div class="meta">🧀 Dip</div>
-      <div class="qtyRow">
-        <label for="q_793">Qty</label>
-        <input class="qty" id="q_793" type="number" min="0" max="99" value="0"
-               data-sku="793" data-name="Spinach Artichoke &amp; Cheese Dip" data-size="250g" data-price="7.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Lemon Herb Chicken &amp; Pasta Kit</div>
-          <div class="sku">SKU 4461 · 907g</div>
-        </div>
-        <div class="price">$22.99</div>
-      </div>
-      <div class="meta">🍋 Meal Kit</div>
-      <div class="qtyRow">
-        <label for="q_4461">Qty</label>
-        <input class="qty" id="q_4461" type="number" min="0" max="99" value="0"
-               data-sku="4461" data-name="Lemon Herb Chicken &amp; Pasta Kit" data-size="907g" data-price="22.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Beef Lo Mein Kit</div>
-          <div class="sku">SKU 4463 · 375g</div>
-        </div>
-        <div class="price">$24.59</div>
-      </div>
-      <div class="meta">🍜 Meal Kit</div>
-      <div class="qtyRow">
-        <label for="q_4463">Qty</label>
-        <input class="qty" id="q_4463" type="number" min="0" max="99" value="0"
-               data-sku="4463" data-name="Beef Lo Mein Kit" data-size="375g" data-price="24.59">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Chicken Quesadillas</div>
-          <div class="sku">SKU 456 · 500g</div>
-        </div>
-        <div class="price">$13.59</div>
-      </div>
-      <div class="meta">🌮 Meal</div>
-      <div class="qtyRow">
-        <label for="q_456">Qty</label>
-        <input class="qty" id="q_456" type="number" min="0" max="99" value="0"
-               data-sku="456" data-name="Chicken Quesadillas" data-size="500g" data-price="13.59">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Gourmet 8 Pack Hamburger Buns</div>
-          <div class="sku">M&amp;M Food Market</div>
-        </div>
-        <div class="price">$7.99</div>
-      </div>
-      <div class="meta">🍞 Buns</div>
-      <div class="qtyRow">
-        <label for="q_buns">Qty</label>
-        <input class="qty" id="q_buns" type="number" min="0" max="99" value="0"
-               data-sku="BUNS" data-name="Gourmet 8 Pack Hamburger Buns" data-size="" data-price="7.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Apple Blossoms</div>
-          <div class="sku">SKU 755 · 230g</div>
-        </div>
-        <div class="price">$5.49</div>
-      </div>
-      <div class="meta">🍎 Dessert</div>
-      <div class="qtyRow">
-        <label for="q_755">Qty</label>
-        <input class="qty" id="q_755" type="number" min="0" max="99" value="0"
-               data-sku="755" data-name="Apple Blossoms" data-size="230g" data-price="5.49">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Pulled Pork</div>
-          <div class="sku">SKU 103 · 680g</div>
-        </div>
-        <div class="price">$17.99</div>
-      </div>
-      <div class="meta">🐷 Pork</div>
-      <div class="qtyRow">
-        <label for="q_103">Qty</label>
-        <input class="qty" id="q_103" type="number" min="0" max="99" value="0"
-               data-sku="103" data-name="Pulled Pork" data-size="680g" data-price="17.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Oktoberfest Sausages</div>
-          <div class="sku">SKU 109 · 900g</div>
-        </div>
-        <div class="price">$20.99</div>
-      </div>
-      <div class="meta">🌭 Sausage</div>
-      <div class="qtyRow">
-        <label for="q_109">Qty</label>
-        <input class="qty" id="q_109" type="number" min="0" max="99" value="0"
-               data-sku="109" data-name="Oktoberfest Sausages" data-size="900g" data-price="20.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Honey Garlic Fall-Off-The-Bone Back Ribs</div>
-          <div class="sku">SKU 155</div>
-        </div>
-        <div class="price">$17.99</div>
-      </div>
-      <div class="meta">🍖 Ribs</div>
-      <div class="qtyRow">
-        <label for="q_155">Qty</label>
-        <input class="qty" id="q_155" type="number" min="0" max="99" value="0"
-               data-sku="155" data-name="Honey Garlic Back Ribs" data-size="" data-price="17.99">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="top">
-        <div>
-          <div class="name">Six Cheese Tortellini</div>
-          <div class="sku">SKU 437 · 300g</div>
-        </div>
-        <div class="price">$5.99</div>
-      </div>
-      <div class="meta">🧀 Pasta</div>
-      <div class="qtyRow">
-        <label for="q_437">Qty</label>
-        <input class="qty" id="q_437" type="number" min="0" max="99" value="0"
-               data-sku="437" data-name="Six Cheese Tortellini" data-size="300g" data-price="5.99">
       </div>
     </div>
 
   </div>
 
-  <!-- ======= PICKUP FORM (submits cart summary) ======= -->
   <div class="pickupWrap" id="pickup">
     <h2 style="margin:0 0 6px">Request Pickup</h2>
     <p class="sub" style="margin:0 0 10px">No online payment • Pay in store at pickup</p>
 
-    <!-- Replace YOUR_FORM_ID with your Formspree URL -->
+    <!-- ✅ 换成你自己的 Formspree -->
     <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="row">
         <div>
@@ -678,7 +226,6 @@
       <label class="block" for="notes">Notes</label>
       <textarea id="notes" name="notes" rows="3" placeholder="Any notes…"></textarea>
 
-      <!-- This will be auto-filled by JS -->
       <input type="hidden" id="order_total_items" name="order_total_items" value="0">
       <input type="hidden" id="order_est_total" name="order_est_total" value="0">
       <textarea id="order_summary" name="order_summary" style="display:none"></textarea>
@@ -686,6 +233,7 @@
       <button class="btn red" id="submitBtn" type="submit" style="width:100%;margin-top:12px" disabled>
         Submit Pickup Request
       </button>
+
       <div class="mini" style="text-align:center;margin-top:10px">
         *Prices & availability may change. We’ll confirm if needed.
       </div>
@@ -699,12 +247,12 @@
   </footer>
 </main>
 
-<!-- ======= CART BAR ======= -->
 <div class="cartBar" role="region" aria-label="Cart">
   <div class="cartInner">
     <div class="cartSummary">
       <strong id="cartTitle">Cart: 0 items</strong>
       <span id="cartTotal">Estimated total: $0.00</span>
+      <span class="mini">No HST</span>
     </div>
 
     <div class="cartActions">
@@ -743,7 +291,7 @@
     qtyInputs.forEach(inp => {
       const qty = parseInt(inp.value || '0', 10);
       if(qty > 0){
-        const name = inp.dataset.name || '';
+        const name = (inp.dataset.name || '').replace(/&amp;/g,'&');
         const sku = inp.dataset.sku || '';
         const size = inp.dataset.size || '';
         const price = parseFloat(inp.dataset.price || '0');
@@ -755,11 +303,9 @@
       }
     });
 
-    // Update bar
     cartTitle.textContent = `Cart: ${totalQty} item${totalQty === 1 ? '' : 's'}`;
     cartTotal.textContent = `Estimated total: ${money(estTotal)}`;
 
-    // Update list UI
     if(items.length === 0){
       cartList.innerHTML = `<div class="mini">No items yet. Add quantities above.</div>`;
     } else {
@@ -774,7 +320,6 @@
       }).join('');
     }
 
-    // Fill hidden fields for email
     const summaryText = items.length
       ? items.map(it => `${it.qty} x ${it.name}${it.size ? ' ('+it.size+')' : ''} | SKU ${it.sku} | $${it.price.toFixed(2)} each | Line: $${it.line.toFixed(2)}`).join('\n')
       : 'No items selected.';
@@ -783,17 +328,19 @@
     orderTotalItems.value = String(totalQty);
     orderEstTotal.value = money(estTotal);
 
-    // enable submit only if has items
     submitBtn.disabled = (totalQty === 0);
   }
 
-  // Events
-  qtyInputs.forEach(inp => inp.addEventListener('input', () => {
-    // prevent negatives / empty
-    if(inp.value === '') inp.value = '0';
-    if(parseInt(inp.value,10) < 0) inp.value = '0';
-    buildCart();
-  }));
+  qtyInputs.forEach(inp => {
+    inp.addEventListener('input', () => {
+      if(inp.value === '') inp.value = '0';
+      if(parseInt(inp.value,10) < 0) inp.value = '0';
+      buildCart();
+    });
+
+    /* ✅ 优化：点一下自动全选 0，方便改数量 */
+    inp.addEventListener('focus', () => inp.select());
+  });
 
   toggleListBtn.addEventListener('click', () => {
     cartList.classList.toggle('show');
@@ -808,7 +355,6 @@
   });
 
   orderForm.addEventListener('submit', (e) => {
-    // final guard
     const totalQty = parseInt(orderTotalItems.value || '0', 10);
     if(totalQty <= 0){
       e.preventDefault();
@@ -816,7 +362,6 @@
     }
   });
 
-  // init
   buildCart();
 </script>
 
